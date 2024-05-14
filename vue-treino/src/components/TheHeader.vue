@@ -1,26 +1,20 @@
 <template>
-    <TheHeader :valorProp="valorDinamico"></TheHeader>
     <div v-bind:class="container">
-        <h1>{{ title }}</h1>
+        <p>{{ valorProp }}</p>
     </div>
 </template>
 
 <script>
-
-import TheHeader from './components/TheHeader.vue';
-    
-    
-
+  
     export default {
-        name: 'App',
-        components: {
-            TheHeader,
+        name: 'TheHeader',
+        props: {
+            valorProp: String,
         },
         data() {
             return {
-                title: 'Hello, World',
+                title: 'Treinando',
                 container: 'container',
-                valorDinamico: "Treinando Props",
             }
         },
     }
