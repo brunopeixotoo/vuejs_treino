@@ -1,6 +1,6 @@
 <template>
     <div v-bind:class="container">
-        <p>{{ valorProp }}</p>
+        <p v-for="post in propsChild" :key="post.id"> Valor: {{ post.valorDinamico }}</p>
     </div>
 </template>
 
@@ -9,11 +9,13 @@
     export default {
         name: 'TheHeader',
         props: {
-            valorProp: String,
+            propsChild: {
+                type: Array,
+                required: true,
+            }
         },
         data() {
             return {
-                title: 'Treinando',
                 container: 'container',
             }
         },
@@ -22,10 +24,4 @@
 </script>
 
 <style>
-    .container {
-        margin: 20px auto 20px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 </style>
