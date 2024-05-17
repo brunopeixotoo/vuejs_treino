@@ -1,16 +1,20 @@
 <template>
-    <TheHeader :propsChild="posts"></TheHeader>
-    <div v-bind:class="container">
-        <h1>{{ title }}</h1>
+    <TheHeader v-if="showHeader"></TheHeader>
+    <div>   
+        <h1>Nome</h1>
+        {{ name }}
+       
+        <button
+            @click="openAndClosed()"
+        >
+            Toogle
+        </button>
     </div>
 </template>
 
 <script>
-
-import TheHeader from './components/TheHeader.vue';
+    import TheHeader from './components/TheHeader.vue';
     
-    
-
     export default {
         name: 'App',
         components: {
@@ -18,16 +22,42 @@ import TheHeader from './components/TheHeader.vue';
         },
         data() {
             return {
-                title: 'Hello, World',
+                name: "Lucas",
+                showHeader: true,
+            }
+        },
+        //HOOKS
+        // beforeCreate() {
+        //     console.log('beforeCreate');
+        //     console.log('Estado:', this.name);
+        //     console.log('DOM:', this.$el);
+        // },
+        // created() {
+        //     console.log('create');
+        //     console.log('Estado:', this.name);
+        //     console.log('DOM:', this.$el);
+        // },
+        // beforeMount() {
+        //     console.log('beforeMount');
+        //     console.log('Estado:', this.name);
+        //     console.log('DOM:', this.$el);
+        // },
+        // mounted() {
+        //     console.log('mounted');
+        //     console.log('Estado:', this.name);
+        //     console.log('DOM:', this.$el);
+        // },
 
-                container: 'container',
 
-                posts: [
-                    {id: 1, valorDinamico: "Treinando componentes 1"},
-                    {id: 2, valorDinamico: "Treinando componentes 2"},
-                    {id: 3, valorDinamico: "Treinando componentes 3 "},
-                    {id: 4, valorDinamico: "Treinando componentes 4 "},
-                ],
+        watch: {
+
+        },
+        computed: {
+
+        },
+        methods: {
+            openAndClosed() {
+                this.showHeader = !this.showHeader;
             }
         },
     }

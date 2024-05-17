@@ -1,6 +1,6 @@
 <template>
-    <div v-bind:class="container">
-        <p v-for="post in propsChild" :key="post.id"> Valor: {{ post.valorDinamico }}</p>
+    <div :class="theheader">
+       <h1>{{ title }}</h1>
     </div>
 </template>
 
@@ -8,20 +8,30 @@
   
     export default {
         name: 'TheHeader',
-        props: {
-            propsChild: {
-                type: Array,
-                required: true,
-            }
-        },
         data() {
             return {
-                container: 'container',
+                title: "The Header",
+
+
+
+                theheader: "header",
             }
         },
+        beforeUnmount() {
+            console.log('beforeUnmount');
+            
+        },
+        unmounted() {
+            console.log('unmounted');
+           
+        },
+
     }
     
 </script>
 
 <style>
+    .header {
+        background-color: rgb(0, 102, 255);
+    }
 </style>
